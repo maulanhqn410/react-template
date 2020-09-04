@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 
 const LoginForm = () => {
   const [userName, setUserName] = useState('');
@@ -13,17 +13,13 @@ const LoginForm = () => {
     }
   }
 
-  const handleLogin = () => {
-    // login page
-  }
-
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
           Log-in to your account
         </Header>
-        <Form size='large'>
+        <Form size='large' >
           <Segment stacked>
             <Form.Input 
             fluid 
@@ -45,7 +41,7 @@ const LoginForm = () => {
               value={password}
             />
 
-            <Button color='teal' fluid size='large'>
+            <Button color='teal' fluid size='large' type='button'>
               Login
             </Button>
           </Segment>
