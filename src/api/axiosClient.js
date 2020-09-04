@@ -8,7 +8,7 @@ const axiosClient = axios.create({
   headers: {
     'content-type': 'application/json',
   },
-  paramsSeriallizer: params => queryString.stringify(params),
+  paramsSeriallizer: (params) => queryString.stringify(params),
 });
 
 axiosClient.interceptors.request.use(async (config) => {
@@ -20,10 +20,10 @@ axiosClient.interceptors.request.use(async (config) => {
     headers: {
       ...config.headers,
       Authorization,
-    }
-  }
+    },
+  };
   return newConfig;
-})
+});
 
 axiosClient.interceptors.response.use((response) => {
   if (response && response.data) {

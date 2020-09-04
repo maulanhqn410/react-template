@@ -4,14 +4,14 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const rootEl = document.getElementById("root");
+const rootEl = document.getElementById('root');
 
 function render() {
   ReactDOM.render(<App />, rootEl);
 }
 
 if (module.hot) {
-  module.hot.accept("./App.js", function() {
+  module.hot.accept('./App.js', () => {
     setTimeout(render);
   });
 }
