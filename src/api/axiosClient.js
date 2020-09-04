@@ -6,13 +6,10 @@ const axiosClient = axios.create({
   headers: {
     'content-type': 'application/json',
   },
-  paramsSeriallizer: params => queryString.stringify(params),
+  paramsSeriallizer: (params) => queryString.stringify(params),
 });
 
-axiosClient.interceptors.request.use(async (config) => {
-  //Handle token here ...
-  return config;
-})
+axiosClient.interceptors.request.use(async (config) => config);
 
 axiosClient.interceptors.response.use((response) => {
   if (response && response.data) {
