@@ -1,56 +1,49 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { Suspense } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import logo from './logo.svg';
 import './App.css';
-import Button from './Button';
-import Modal from './Modal';
-
-const StyledApp = styled.div`
-  text-align: center,
-`;
-
-const StyledP = styled.p`
-  font-size: 18,
-  color: black
-`;
-
-const StyledHeader = styled.header`
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-`;
+import ScrollToTop from './components/shared/ScollToTop';
+import 'semantic-ui-css/semantic.min.css';
+import LoginForm from './page/loginPage';
+import { GlobalStyle } from './global.styles';
+import ErrorBoundary from './components/shared/ErrorBoundary';
 
 function App() {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  function onToggleModal() {
-    setIsOpenModal(!isOpenModal);
-  }
-
   return (
-    <StyledApp>
-      <StyledHeader>
-        <Button
-          color="red"
-          text="Click to open modal"
-          onClick={onToggleModal}
-        />
-      </StyledHeader>
-      <Modal
-        modalIsOpen={isOpenModal}
-        closeModal={onToggleModal}
-      >
-        <StyledP>Hello</StyledP>
-        <StyledP>I am a modal</StyledP>
-        <Button
-          onClick={onToggleModal}
-          text="Close"
-        />
-      </Modal>
-    </StyledApp>
+    <Router>
+      <GlobalStyle />
+      <Switch>
+        <ErrorBoundary>
+          <ScrollToTop>
+            <Suspense fallback={<div>Loading ....</div>}>
+              <Route path="/" exact>
+                <div className="App">
+                  <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <p>
+                      Edit dasdsads
+                      <code>src/App.js</code>
+                      and save to reload.
+                    </p>
+                    <a
+                      className="App-link"
+                      href="https://reactjs.org"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Learn React
+                    </a>
+                  </header>
+                </div>
+              </Route>
+              <Route path="/login" exact>
+                <LoginForm />
+              </Route>
+            </Suspense>
+          </ScrollToTop>
+        </ErrorBoundary>
+      </Switch>
+    </Router>
   );
 }
 
