@@ -3,13 +3,15 @@ import logo from "./logo.svg";
 import "./App.css";
 import ScrollToTop from "./components/shared/ScollToTop";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import 'semantic-ui-css/semantic.min.css';
+import LoginForm from './page/loginPage';
 
 function App() {
   return (
     <Router>
       <Switch>
         <ScrollToTop>
-          <Route path='/'>
+          <Route path='/' exact>
             <div className='App'>
               <header className='App-header'>
                 <img src={logo} className='App-logo' alt='logo' />
@@ -26,6 +28,9 @@ function App() {
                 </a>
               </header>
             </div>
+          </Route>
+          <Route path='/login' exact>
+            <LoginForm />
           </Route>
         </ScrollToTop>
       </Switch>
