@@ -1,19 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import StyledButton from './style';
 
 const Button = ({
   text,
   className,
   onClick,
 }) => (
-  <button
+  <StyledButton
     type="button"
     className={className}
     onClick={onClick}
   >
     {text}
-  </button>
+  </StyledButton>
 );
 
 Button.propTypes = {
@@ -22,14 +22,4 @@ Button.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-const StyledButton = styled(Button)`
-  background: transparent;
-  border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: red;
-  margin: 0 1em;
-  padding: 0.25em 1em;
-  cursor: pointer
-`;
-
-export default StyledButton;
+export default Button;
