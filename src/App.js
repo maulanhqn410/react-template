@@ -1,12 +1,12 @@
-import React, { Suspense } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import ScrollToTop from "./components/shared/ScollToTop";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React, { Suspense } from 'react';
+import logo from './logo.svg';
+import './App.css';
+import ScrollToTop from './components/shared/ScollToTop';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import LoginForm from './page/loginPage';
-import { GlobalStyle } from "./global.styles";
-import ErrorBoundary from "./components/shared/ErrorBoundary";
+import { GlobalStyle } from './global.styles';
+import ErrorBoundary from './components/shared/ErrorBoundary';
 
 function App() {
   return (
