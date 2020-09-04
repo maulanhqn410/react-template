@@ -1,9 +1,17 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const Button = ({ text, className }) => (
-  <button type="button" className={className}>
+const Button = ({
+  text,
+  className,
+  onClick,
+}) => (
+  <button
+    type="button"
+    className={className}
+    onClick={onClick}
+  >
     {text}
   </button>
 );
@@ -11,6 +19,7 @@ const Button = ({ text, className }) => (
 Button.propTypes = {
   text: PropTypes.string.isRequired,
   className: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 const StyledButton = styled(Button)`
@@ -20,15 +29,7 @@ const StyledButton = styled(Button)`
   color: red;
   margin: 0 1em;
   padding: 0.25em 1em;
-
-  &:hover {
-    color: green
-  }
-
-  ${(props) => props.primary
-    && css`
-      background: palevioletred;
-    `};
+  cursor: pointer
 `;
 
 export default StyledButton;
