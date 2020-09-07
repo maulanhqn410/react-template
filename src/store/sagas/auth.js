@@ -1,7 +1,7 @@
 import { all, call, takeLatest, put } from 'redux-saga/effects';
 
 import { authAPI } from 'api/auth';
-import { GET_AUTH } from 'store/actionTypes/auth';
+import { GET_AUTH, GET_AUTH_SUCCESS } from 'store/actionTypes/auth';
 
 function* getAuthStart() {
   yield takeLatest(GET_AUTH, handleAuth);
@@ -10,7 +10,9 @@ function* getAuthStart() {
 function* handleAuth() {
   try {
     let res = yield call(authAPI.getAuth, 3000);
-    console.log(res);
+    if (res) {
+      put({ type: GET_AUTH_SUCCESS });
+    }
   } catch (error) {
     console.log(error);
   }
