@@ -8,8 +8,8 @@ import { isEqual } from 'lodash';
 import logo from './logo.svg';
 import './App.css';
 import ScrollToTop from './components/shared/ScollToTop';
-import 'semantic-ui-css/semantic.min.css';
 import LoginForm from './pages/loginPage';
+import UserTable from './example/UserTable';
 import { GlobalStyle } from './global.styles';
 import ErrorBoundary from './components/shared/ErrorBoundary';
 import Modal from './components/shared/Modal';
@@ -56,6 +56,9 @@ function App() {
               </Route>
               <Route path="/login" exact>
                 <LoginForm />
+              </Route>
+              <Route path="/table" exact>
+                <UserTable />
               </Route>
               <Button
                 text="Click to increase count"
