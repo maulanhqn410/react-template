@@ -1,20 +1,13 @@
 import { combineReducers } from 'redux';
-import { persistReducer } from 'redux-persist';
 
-const persistConfig = {
-  key: 'root',
-  storage,
-  whitelist: ['informations'],
-};
+import { connectRouter } from 'connected-react-router';
+import { createBrowserHistory } from 'history';
 
-const infoConfig = {
-  key: 'informations',
-  storage,
-  whitelist: ['information', 'listData'],
-  stateReconciler: hardSet,
-};
+export const history = createBrowserHistory();
 
-export default persistReducer(
-  persistConfig,
-  combineReducers({}),
-);
+const rootReducer = history =>
+  combineReducers({
+    router: connectRouter(history)
+  });
+
+export default rootReducer(history);
