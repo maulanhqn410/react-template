@@ -10,6 +10,8 @@ import {
 import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
+import { getAuth } from 'store/actions/auth';
+
 const LoginForm = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -57,7 +59,9 @@ const LoginForm = () => {
               fluid
               size='large'
               type='button'
-              onClick={() => {}}
+              onClick={() => {
+                dispatch(getAuth());
+              }}
             >
               Login
             </Button>
