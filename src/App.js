@@ -10,7 +10,6 @@ import {
   Link,
 } from 'react-router-dom';
 import { isEqual } from 'lodash';
-import logo from './logo.svg';
 import './App.css';
 import ScrollToTop from './components/shared/ScollToTop';
 import LoginForm from './pages/loginPage';
@@ -44,20 +43,8 @@ function App() {
               <Route path="/" exact>
                 <div className="App">
                   <Link to="/login">Login</Link>
-                  <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <p>
-                      {count}
-                    </p>
-                    <a
-                      className="App-link"
-                      href="https://reactjs.org"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Learn React
-                    </a>
-                  </header>
+                  <br />
+                  <Link to="/table">Table</Link>
                 </div>
               </Route>
               <Route path="/login" exact>
@@ -66,6 +53,11 @@ function App() {
               <Route path="/table" exact>
                 <UserTable />
               </Route>
+              <div>
+                count:
+                {' '}
+                {count}
+              </div>
               <Button
                 text="Click to increase count"
                 onClick={onSetCount}

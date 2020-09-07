@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   CellMeasurer,
   CellMeasurerCache,
 } from 'react-virtualized';
 import MyTable from '../components/shared/Table';
 
+const limit = 5;
+
 const cache = new CellMeasurerCache({
   fixedWidth: true,
   minHeight: 70,
 });
 
+function setMockUsers() {
+  const res = [];
+  for (let i = 0; i < 1000; i++) {
+    res.push({
+      id: `KO${i + 1}`,
+      firstName: `Koo ${i + 1}`,
+      lastName: 'Test',
+      email: `kootest${i + 1}@mailiantor.com`,
+    });
+  }
+  return res;
+}
+
 function UserTable() {
+  const [currentPage, setCurrentPage] = useState(1);
+
   function renderData(data) {
     return (
       <div>
@@ -38,27 +55,7 @@ function UserTable() {
       </CellMeasurer>
     );
   }
-  const data = [
-    {
-      id: '1',
-      firstName: 'Koo',
-      lastName: 'Test',
-      email: 'kootest@mailiantor.com',
-    },
-    {
-      id: '2',
-      firstName: 'Koo 1',
-      lastName: 'Test 1',
-      email: 'kootest1@mailiantor.com',
-    },
-    {
-      id: '3',
-      firstName: 'Koo 2',
-      lastName: 'Test 2',
-      email: 'kootest2@mailiantor.com',
-    },
-  ];
-
+  const data = setMockUsers();
   const columns = [
     {
       label: 'Id',
@@ -92,10 +89,18 @@ function UserTable() {
     },
   ];
 
+  function onPageChange({ selected }) {
+    setCurrentPage(selected + 1);
+    // To be update to call API
+  }
+  const lasData = currentPage * limit;
+  const rowRender = data.slice(lasData - 5, lasData);
   return (
     <MyTable
-      data={data}
+      data={rowRender}
+      totalPage={Math.ceil(data.length / limit)}
       columns={columns}
+      onPageChange={onPageChange}
     />
   );
 }

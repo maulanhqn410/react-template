@@ -9,4 +9,8 @@ export const StyledTable = styled(Table)`
   & .odd {
     background-color: #f7f7f8;
   }
+
+  & :focus {
+    outline: 0;
+  }
 `;
