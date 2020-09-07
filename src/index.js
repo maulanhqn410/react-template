@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { store } from 'store';
+import { ConnectedRouter } from 'connected-react-router';
+import { history } from 'store/reducers';
+
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -7,7 +12,14 @@ import * as serviceWorker from './serviceWorker';
 const rootEl = document.getElementById('root');
 
 function render() {
-  ReactDOM.render(<App />, rootEl);
+  ReactDOM.render(
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App />
+      </ConnectedRouter>
+    </Provider>,
+    rootEl
+  );
 }
 
 if (module.hot) {

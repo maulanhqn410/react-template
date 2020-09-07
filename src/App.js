@@ -9,7 +9,7 @@ import logo from './logo.svg';
 import './App.css';
 import ScrollToTop from './components/shared/ScollToTop';
 import 'semantic-ui-css/semantic.min.css';
-import LoginForm from './page/loginPage';
+import LoginForm from './pages/loginPage';
 import { GlobalStyle } from './global.styles';
 import ErrorBoundary from './components/shared/ErrorBoundary';
 import Modal from './components/shared/Modal';

@@ -1,9 +1,18 @@
-import React, { useState } from 'react'
-import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import React, { useState } from 'react';
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Message,
+  Segment
+} from 'semantic-ui-react';
+import { Link, useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   const handleChange = e => {
     if (e.target.name === 'userName') {
@@ -11,7 +20,7 @@ const LoginForm = () => {
     } else if (e.target.name === 'password') {
       setPassword(e.target.value);
     }
-  }
+  };
 
   return (
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
@@ -19,16 +28,16 @@ const LoginForm = () => {
         <Header as='h2' color='teal' textAlign='center'>
           Log-in to your account
         </Header>
-        <Form size='large' >
+        <Form size='large'>
           <Segment stacked>
-            <Form.Input 
-            fluid 
-            icon='user' 
-            iconPosition='left' 
-            placeholder='E-mail address' 
-            name='userName'
-            onChange={handleChange}
-            value={userName}
+            <Form.Input
+              fluid
+              icon='user'
+              iconPosition='left'
+              placeholder='E-mail address'
+              name='userName'
+              onChange={handleChange}
+              value={userName}
             />
             <Form.Input
               fluid
@@ -41,7 +50,13 @@ const LoginForm = () => {
               value={password}
             />
 
-            <Button color='teal' fluid size='large' type='button'>
+            <Button
+              color='teal'
+              fluid
+              size='large'
+              type='button'
+              onClick={() => history.push('/')}
+            >
               Login
             </Button>
           </Segment>
@@ -54,6 +69,7 @@ const LoginForm = () => {
         </Message>
       </Grid.Column>
     </Grid>
-)}
+  );
+};
 
-export default LoginForm
+export default LoginForm;
