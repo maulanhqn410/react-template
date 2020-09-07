@@ -14,6 +14,7 @@ import './App.css';
 import ScrollToTop from './components/shared/ScollToTop';
 import LoginForm from './pages/loginPage';
 import UserTable from './example/UserTable';
+import UserList from './example/UserList';
 import { GlobalStyle } from './global.styles';
 import ErrorBoundary from './components/shared/ErrorBoundary';
 import Modal from './components/shared/Modal';
@@ -28,7 +29,6 @@ function App() {
   function toggleModal() {
     setIsOpenModal(!isOpenModal);
   }
-
   function onSetCount() {
     setCount((prevCount) => prevCount + 1);
   }
@@ -45,6 +45,8 @@ function App() {
                   <Link to="/login">Login</Link>
                   <br />
                   <Link to="/table">Table</Link>
+                  <br />
+                  <Link to="/list">List</Link>
                 </div>
               </Route>
               <Route path="/login" exact>
@@ -52,6 +54,9 @@ function App() {
               </Route>
               <Route path="/table" exact>
                 <UserTable />
+              </Route>
+              <Route path="/list" exact>
+                <UserList />
               </Route>
               <div>
                 count:

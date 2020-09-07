@@ -12,7 +12,7 @@ const cache = new CellMeasurerCache({
   minHeight: 70,
 });
 
-function setMockUsers() {
+export function setMockUsers() {
   const res = [];
   for (let i = 0; i < 1000; i++) {
     res.push({

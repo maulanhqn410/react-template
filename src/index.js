@@ -19,7 +19,7 @@ function render() {
         <App />
       </ConnectedRouter>
     </Provider>,
-    rootEl
+    rootEl,
   );
 }
 
