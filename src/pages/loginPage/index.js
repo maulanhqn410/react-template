@@ -8,11 +8,13 @@ import {
   Segment
 } from 'semantic-ui-react';
 import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 const LoginForm = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     if (e.target.name === 'userName') {
@@ -55,7 +57,7 @@ const LoginForm = () => {
               fluid
               size='large'
               type='button'
-              onClick={() => history.push('/')}
+              onClick={() => {}}
             >
               Login
             </Button>

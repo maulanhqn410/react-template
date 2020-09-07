@@ -5,14 +5,8 @@
     "es6": true
   },
   "parser": "babel-eslint",
-  "plugins": [
-    "react",
-    "react-hooks"
-  ],
-  "extends": [
-    "airbnb",
-    "plugin:react-hooks/recommended"
-  ],
+  "plugins": ["react", "react-hooks"],
+  "extends": ["airbnb", "plugin:react-hooks/recommended"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "quotes": ["error", "single"],

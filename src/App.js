@@ -9,6 +9,7 @@ import { GlobalStyle } from './global.styles';
 import ErrorBoundary from './components/shared/ErrorBoundary';
 import Modal from './components/shared/Modal';
 import Button from './components/shared/Button';
+import { Link } from 'react-router-dom';
 
 function App() {
   const [isOpenModal, setIsOpenModal] = useState(false);
@@ -24,6 +25,7 @@ function App() {
             <Suspense fallback={<div>Loading ....</div>}>
               <Route path='/' exact>
                 <div className='App'>
+                  <Link to='/login'>Login</Link>
                   <header className='App-header'>
                     <img src={logo} className='App-logo' alt='logo' />
                     <p>
