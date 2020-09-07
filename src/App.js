@@ -3,7 +3,12 @@ import React, {
   useState,
   memo,
 } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from 'react-router-dom';
 import { isEqual } from 'lodash';
 import logo from './logo.svg';
 import './App.css';
@@ -38,6 +43,7 @@ function App() {
             <Suspense fallback={<div>Loading ....</div>}>
               <Route path="/" exact>
                 <div className="App">
+                  <Link to="/login">Login</Link>
                   <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <p>
