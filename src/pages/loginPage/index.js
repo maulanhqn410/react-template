@@ -5,20 +5,17 @@ import {
   Grid,
   Header,
   Message,
-  Segment
+  Segment,
 } from 'semantic-ui-react';
-import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-
 import { getAuth } from 'store/actions/auth';
 
 const LoginForm = () => {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
-  const history = useHistory();
   const dispatch = useDispatch();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     if (e.target.name === 'userName') {
       setUserName(e.target.value);
     } else if (e.target.name === 'password') {
@@ -27,38 +24,38 @@ const LoginForm = () => {
   };
 
   return (
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
+        <Header as="h2" color="teal" textAlign="center">
           Log-in to your account
         </Header>
-        <Form size='large'>
+        <Form size="large">
           <Segment stacked>
             <Form.Input
               fluid
-              icon='user'
-              iconPosition='left'
-              placeholder='E-mail address'
-              name='userName'
+              icon="user"
+              iconPosition="left"
+              placeholder="E-mail address"
+              name="userName"
               onChange={handleChange}
               value={userName}
             />
             <Form.Input
               fluid
-              icon='lock'
-              iconPosition='left'
-              placeholder='Password'
-              type='password'
-              name='password'
+              icon="lock"
+              iconPosition="left"
+              placeholder="Password"
+              type="password"
+              name="password"
               onChange={handleChange}
               value={password}
             />
 
             <Button
-              color='teal'
+              color="teal"
               fluid
-              size='large'
-              type='button'
+              size="large"
+              type="button"
               onClick={() => {
                 dispatch(getAuth());
               }}
@@ -68,10 +65,16 @@ const LoginForm = () => {
           </Segment>
         </Form>
         <Message>
-          <a href='#'>Forget password</a>
+          <a href="#">
+            Forget password
+          </a>
         </Message>
         <Message>
-          New to us? <a href='#'>Sign Up</a>
+          New to us?
+          {' '}
+          <a href="#">
+            Sign Up
+          </a>
         </Message>
       </Grid.Column>
     </Grid>
